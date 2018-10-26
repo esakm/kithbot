@@ -22,7 +22,7 @@ char_encodings = {
 
 
 def get_config_file():
-    with open('data\\config.json') as fd:
+    with open('config.json') as fd:
         return json.load(fd)
 
 
