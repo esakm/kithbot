@@ -1,0 +1,16 @@
+{
+  "targets": [
+    {
+      "name": "nike air max 1",
+      "size": 8
+    },
+    {
+      "name": "nike air max 1 premium",
+      "size": 10.5
+    },
+    {
+      "name": "nike wmns air force 1 upstep lux",
+      "size": 10
+    }
+  ]
+}
