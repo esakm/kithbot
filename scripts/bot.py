@@ -1,4 +1,4 @@
-import json, bs4, time
+import json, time, os
 from selenium import webdriver
 
 targets = []
@@ -22,6 +22,7 @@ char_encodings = {
 
 
 def get_config_file():
+    print(os.getcwd())
     with open('config.json') as fd:
         return json.load(fd)
 
