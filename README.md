@@ -16,9 +16,10 @@ then type the command python3 setup.py install
 <h1>Usage</h1>
 <p>
 open commmand prompt or terminal and go to the directory where you downloaded the files
-do the command cd scripts
-then python3 bot.py
 
 
-to add more "targets" theres a config.json file in the scripts folder. Add to that, follow the same format. Commas matter too. Use curly braces {} to add a new target under "targets"{}
+do the command cd scripts then python3 bot.py
+
+
+to add more "targets" theres a config.json file in the scripts folder. Add to that, follow the same format. Commas matter too. Use curly braces {} to add a new target under "targets"[]
 </p>
