@@ -4,11 +4,11 @@ from selenium import webdriver
 targets = []
 driver: webdriver.Chrome
 
-search_url = "https://kith.com/pages/search-results-page?q={}"
-cart_url = "https://kith.com/cart"
+SEARCH_URL = "https://kith.com/pages/search-results-page?q={}"
+CART_URL = "https://kith.com/cart"
 # Check out button
 # button type="submit" name="checkout" class="btn"
-char_encodings = {
+CHAR_ENCODINGS = {
     "/": "%2F",
     "\\": "%5C",
     ";": "%3B",
@@ -28,7 +28,6 @@ def get_config_file():
 
 
 def get_targets(config_data):
-    global targets
     print("Grabbing targets.")
     for target in config_data["targets"]:
         targets.append(target)
@@ -68,18 +67,16 @@ def change_size(size, back_up_size=None):
 
 
 def replace_special_chars(item_name):
-    global char_encodings
-    for char, replacement in char_encodings.items():
+    for char, replacement in CHAR_ENCODINGS.items():
         if char in item_name:
             item_name = item_name.replace(char, replacement)
     return item_name
 
 
 def get_search_query_url(item):
-    global search_url
     name = item["name"].lower()
     name = replace_special_chars(name)
-    return search_url.format(name)
+    return SEARCH_URL.format(name)
 
 
 def go_to_item_page(item_name):
@@ -99,6 +96,7 @@ def go_to_next_page(page_number):
     except Exception:
         pass
 
+
 def add_to_cart():
     try:
         driver.find_element_by_class_name("product-single-add-to-cart").click()
@@ -106,9 +104,9 @@ def add_to_cart():
     except Exception:
         return False
 
+
 def go_to_cart():
-    global cart_url
-    driver.get(cart_url)
+    driver.get(CART_URL)
 
 
 def go_to_checkout():
@@ -154,5 +152,6 @@ def main():
     go_to_cart()
     go_to_checkout()
     time.sleep(500)
+
 
 main()
